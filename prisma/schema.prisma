@@ -104,6 +104,15 @@ model stores {
   sales     sales[]
 }
 
+model usuarios {
+  usuario_id     Int      @id @default(autoincrement())
+  correo         String   @unique @db.VarChar(120)
+  password       String   @db.VarChar(191)
+  activo         Boolean  @default(true)
+  nombre_usuario String   @unique @db.VarChar(80)
+  fecha_creacion DateTime @default(now()) @db.DateTime(0)
+}
+
 enum promotions_promo_type {
   GENERAL
   PRODUCT
